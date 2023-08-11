@@ -1,13 +1,25 @@
 body{
-    background-color: gray;
-    height: 100vh;
     margin: 0px;
     padding: 0px;
 }
 
-div {
-    background-color: black;
+#header{
+    background-color: #581c87;
     height: 10vh;
+}
+
+#content{
+    height: 90vh;
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) minmax(500px, 5fr);
+}
+
+#menu{
+    background-color:#6b21a8;
+}
+
+#main{
+    background-color: #7e22ce;
 }
 
 h1{
