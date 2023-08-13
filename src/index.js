@@ -34,3 +34,41 @@ domAppend(menu.element, content.element)
 const main = new domCreate('div')
 main.element.setAttribute('id', 'main')
 domAppend(main.element, content.element)
+
+const todo = function(tittle, description, dueDate, priority){
+
+    this.tittle = tittle
+    this.description = description
+    this.dueDate = dueDate
+    this.priority = priority
+
+}
+
+function createTodo(List){
+
+    const div = new domCreate('div')
+    domAppend(div.element, main.element)
+
+    const tittle = new domCreate('h3')
+    domText(tittle.element, List.tittle)
+    domAppend(tittle.element, div.element)
+
+    const description = new domCreate('p')
+    domText(description.element, List.description)
+    description.element.classList.add('description')
+    domAppend(description.element, div.element)
+
+    const priority = new domCreate('p')
+    domText(priority.element, List.priority)
+    domAppend(priority.element, div.element)
+
+    const date = new domCreate('p')
+    domText(date.element, List.dueDate)
+    domAppend(date.element, div.element)
+
+}
+
+const test = new todo('test', 'text', '22/22', 'urgent')
+const test2 = new todo('pois', 'poise', '1122', 'normal')
+createTodo(test)
+createTodo(test2)
