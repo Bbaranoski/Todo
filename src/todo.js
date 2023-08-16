@@ -12,6 +12,7 @@ export const todo = function(tittle, description, dueDate, priority){
 export function createTodo(List, place){
 
     const div = new domCreate('div')
+    div.element.classList.add('todo')
     domAppend(div.element, place)
 
     const tittle = new domCreate('h3')
