@@ -29,8 +29,11 @@ export const createList = function(list, main, text){
     main.element.classList.add('main')
     
     list.element.addEventListener(('click'), () => {
-        
+
+        const delet = document.getElementById('select')
+        delet.remove()
         domAppend(main.element, content.element)
+        main.element.setAttribute('id', 'select')
         
     })
 
@@ -48,3 +51,7 @@ domAppend(content.element, document.body)
 const menu = new domCreate('div')
 menu.element.setAttribute('id', 'menu')
 domAppend(menu.element, content.element)
+
+const testdiv = new domCreate('div')
+testdiv.element.setAttribute('id', 'select')
+domAppend(testdiv.element, content.element)
