@@ -31,13 +31,28 @@ export const createList = function(list, main, text){
     list.element.addEventListener(('click'), () => {
 
         const delet = document.getElementById('select')
-        delet.remove()
-        domAppend(main.element, content.element)
-        main.element.setAttribute('id', 'select')
+        if(main.element != delet){
+            delet.remove()
+            domAppend(main.element, content.element)
+            main.element.setAttribute('id', 'select')
+        }
+        
+    })
+
+    const buttonListDelet = new domCreate('button')
+    domText(buttonListDelet.element, 'X')
+    domAppend(buttonListDelet.element, list.element)
+
+    buttonListDelet.element.addEventListener(('click'), () => {
+
+        list.element.remove()
+        main.element.remove()
+        domAppend(testdiv.element, content.element)
         
     })
 
 }
+
 const header = new domCreate('div')
 header.element.setAttribute('id', 'header')
 domAppend(header.element, document.body)
