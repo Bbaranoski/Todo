@@ -1,9 +1,3 @@
-export const domCreate = function(element){
-
-    this.element = document.createElement(element)
-
-}
-
 export function domAppend(element, local){
 
     local.appendChild(element)
@@ -16,57 +10,73 @@ export function domText(element, text){
 
 }
 
-export const createList = function(list, main, text){
+export const createList = function(text){
 
-    this.list = list
-    list.element.classList.add('list')
-    domAppend(list.element, menu.element)
-    const tittle = new domCreate('h2')
-    domText(tittle.element, text)
-    domAppend(tittle.element, list.element)
+    const list = document.createElement('div')
+    list.classList.add('list')
+    domAppend(list, menu)
+    const tittle = document.createElement('h2')
+    domText(tittle, text)
+    domAppend(tittle, list)
 
-    this.main = main
-    main.element.classList.add('main')
+    this.main = document.createElement('div')
+    this.main.classList.add('main')
     
-    list.element.addEventListener(('click'), () => {
+    list.addEventListener(('click'), () => {
 
         const delet = document.getElementById('select')
-        if(main.element != delet){
+        if(this.main != delet){
             delet.remove()
-            domAppend(main.element, content.element)
-            main.element.setAttribute('id', 'select')
+            domAppend(this.main, content)
+            this.main.setAttribute('id', 'select')
         }
         
     })
 
-    const buttonListDelet = new domCreate('button')
-    domText(buttonListDelet.element, 'X')
-    domAppend(buttonListDelet.element, list.element)
+    const buttonListDelet = document.createElement('button')
+    domText(buttonListDelet, 'X')
+    domAppend(buttonListDelet, list)
 
-    buttonListDelet.element.addEventListener(('click'), () => {
+    buttonListDelet.addEventListener(('click'), e => {
 
-        list.element.remove()
-        main.element.remove()
-        domAppend(testdiv.element, content.element)
+        const delet = document.getElementById('select')
+        delet.remove()
+        e.stopPropagation()
+        list.remove()
+        domAppend(testdiv, content)
         
     })
 
 }
 
-const header = new domCreate('div')
-header.element.setAttribute('id', 'header')
-domAppend(header.element, document.body)
-const tittle = new domCreate('h1')
-domAppend(tittle.element, header.element)
-domText(tittle.element, 'Todo List')
+const header = document.createElement('div')
+header.setAttribute('id', 'header')
+domAppend(header, document.body)
+const tittle = document.createElement('h1')
+domText(tittle, 'Todo List')
+domAppend(tittle, header)
 
-const content = new domCreate('div')
-content.element.setAttribute('id', 'content')
-domAppend(content.element, document.body)
-const menu = new domCreate('div')
-menu.element.setAttribute('id', 'menu')
-domAppend(menu.element, content.element)
+const content = document.createElement('div')
+content.setAttribute('id', 'content')
+domAppend(content, document.body)
+const menu = document.createElement('div')
+menu.setAttribute('id', 'menu')
+domAppend(menu, content)
 
-const testdiv = new domCreate('div')
-testdiv.element.setAttribute('id', 'select')
-domAppend(testdiv.element, content.element)
+const testdiv = document.createElement('div')
+testdiv.setAttribute('id', 'select')
+domAppend(testdiv, content)
+
+const buttonListCreate = document.createElement('div')
+buttonListCreate.setAttribute('id', 'listCreate')
+buttonListCreate.classList.add('list')
+domAppend(buttonListCreate, menu)
+const buttonTittle = document.createElement('h2')
+domText(buttonTittle, 'New List')
+domAppend(buttonTittle, buttonListCreate)
+const listForm = document.createElement('form')
+domAppend(listForm, menu)
+const listInput = document.createElement('input')
+domAppend(listInput, listForm)
+const listSubmmit = document.createElement('button')
+domAppend(listSubmmit, listForm)

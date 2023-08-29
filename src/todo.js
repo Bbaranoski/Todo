@@ -1,4 +1,4 @@
-import {domCreate, domAppend, domText} from "./dom.js"
+import {domAppend, domText} from "./dom.js"
 
 export const todo = function(tittle, description, dueDate, priority){
 
@@ -11,27 +11,27 @@ export const todo = function(tittle, description, dueDate, priority){
 
 export function createTodo(List, place){
 
-    const div = new domCreate('div')
-    div.element.classList.add('todo')
-    domAppend(div.element, place)
+    const div = document.createElement('div')
+    div.classList.add('todo')
+    domAppend(div, place)
 
-    const tittle = new domCreate('h3')
-    domText(tittle.element, List.tittle)
-    domAppend(tittle.element, div.element)
+    const tittle = document.createElement('h3')
+    domText(tittle, List.tittle)
+    domAppend(tittle, div)
 
-    const description = new domCreate('p')
-    domText(description.element, List.description)
-    description.element.classList.add('description')
-    domAppend(description.element, div.element)
+    const description = document.createElement('p')
+    domText(description, List.description)
+    description.classList.add('description')
+    domAppend(description, div)
 
-    const priority = new domCreate('p')
-    domText(priority.element, List.priority)
-    priority.element.classList.add('priority')
-    domAppend(priority.element, div.element)
+    const priority = document.createElement('p')
+    domText(priority, List.priority)
+    priority.classList.add('priority')
+    domAppend(priority, div)
 
-    const date = new domCreate('p')
-    domText(date.element, List.dueDate)
-    date.element.classList.add('date')
-    domAppend(date.element, div.element)
+    const date = document.createElement('p')
+    domText(date, List.dueDate)
+    date.classList.add('date')
+    domAppend(date, div)
 
 }
