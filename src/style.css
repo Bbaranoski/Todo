@@ -104,3 +104,14 @@ button:hover{
     order: 1;
     justify-content: center;
 }
+
+form{
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    width: 8vw;
+    min-width: 75px;
+    height: calc(15px + 0.3vw);
+}
