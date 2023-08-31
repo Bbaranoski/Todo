@@ -115,3 +115,19 @@ input{
     min-width: 75px;
     height: calc(15px + 0.3vw);
 }
+
+#submit{
+    background-color: #a3e635;
+}
+
+#submit:hover{
+    background-color: #84cc16;
+}
+
+#newTodo{
+    background-color: #f59e0b;
+    order: 1;
+    align-self: center;
+    font-size: calc(15px + 0.3vw);
+    padding: 10px;
+}

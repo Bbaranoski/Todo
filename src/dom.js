@@ -32,11 +32,26 @@ export function domAppend(element, local) {
   
     buttonListDelet.addEventListener("click", (e) => {
       const delet = document.getElementById("select");
-      delet.remove();
-      e.stopPropagation();
-      list.remove();
-      domAppend(testdiv, content);
+      if(delet == this.main){
+        delet.remove();
+        e.stopPropagation();
+        list.remove();
+        domAppend(testdiv, content);
+      }else if(delet !== this.main){
+        e.stopPropagation();
+        list.remove();
+      };
     });
+
+    const buttonTodo = document.createElement("button");
+    buttonTodo.setAttribute("id", "newTodo")
+    domText(buttonTodo, "New Todo")
+    domAppend(buttonTodo, this.main)
+
+    buttonTodo.addEventListener("click", () => {
+
+    });
+
   };
   
   const header = document.createElement("div");
