@@ -1,4 +1,4 @@
-import { domAppend, domText } from "./dom.js";
+import { domAppend, domText, testdiv } from "./dom.js";
 import { buttonTodo } from "./todo.js";
 
 export const createList = function (text) {
@@ -31,6 +31,7 @@ export const createList = function (text) {
     if (delet == this.main) {
       delet.remove();
       e.stopPropagation();
+      domAppend(testdiv, content)
       list.remove();
     } else if (delet !== this.main) {
       e.stopPropagation();

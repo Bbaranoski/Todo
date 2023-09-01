@@ -22,7 +22,7 @@ const menu = document.createElement("div");
 menu.setAttribute("id", "menu");
 domAppend(menu, content);
 
-const testdiv = document.createElement("div");
+export const testdiv = document.createElement("div");
 testdiv.setAttribute("id", "select");
 testdiv.classList.add('testdiv')
 domAppend(testdiv, content);
