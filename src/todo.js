@@ -31,3 +31,39 @@ export function createTodo(List, place) {
   date.classList.add("date");
   domAppend(date, div);
 }
+
+export const buttonTodo = document.createElement("button");
+buttonTodo.setAttribute("id", "newTodo");
+domText(buttonTodo, "New Todo");
+
+buttonTodo.addEventListener("click", () => {
+  buttonTodo.remove();
+  const todoDiv = document.getElementById("select");
+  domAppend(todoForm, todoDiv);
+});
+
+const todoForm = document.getElementById("formTodo");
+const todoTittle = document.getElementById("tittleTodo");
+const todoDescription = document.getElementById("descriptionTodo");
+const todoPriority = document.getElementById("urgentTodo");
+const todoDate = document.getElementById("dateTodo");
+todoForm.remove();
+
+todoForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const todoDiv = document.getElementById("select");
+  todoForm.remove();
+  domAppend(buttonTodo, todoDiv);
+
+  const info = new todo(
+    todoTittle.value,
+    todoDescription.value,
+    todoDate.value,
+    todoPriority.value,
+  );
+  createTodo(info, todoDiv);
+  todoTittle.value = "";
+  todoDescription.value = "";
+  todoDate.value = "";
+  todoPriority.value = "";
+});
