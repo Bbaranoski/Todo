@@ -11,11 +11,23 @@
         <button id="submit" type="submit">V</button>
     </form>
     <form id="formTodo" class="todo" action="./index.html" method="get">
-        <input id="tittleTodo" type="text" name="tittleTodo" required>
-        <input id="descriptionTodo" type="text" name="descriptionTodo" required>
-        <input id="urgentTodo" type="text" name="urgentTodo">
-        <input id="dateTodo" type="date" name="dateTodo">
-        <button id="submitTodo" type="submit"></button>
+        <div>
+            <label for="tittleTodo">Tittle</label>
+            <input id="tittleTodo" type="text" name="tittleTodo" required>
+        </div>
+        <div>
+            <label for="descriptionTodo">Description</label>
+            <input id="descriptionTodo" type="text" name="descriptionTodo" required>
+        </div>
+        <div>
+            <label for="urgentTodo">Priority</label>
+            <input id="urgentTodo" type="text" name="urgentTodo">
+        </div>
+        <div>
+            <label for="dateTodo">Date</label>
+            <input id="dateTodo" type="date" name="dateTodo">
+        </div>
+        <button id="submitTodo" type="submit">Submmit</button>
     </form>
     <script src="main.js"></script>
 </body>
