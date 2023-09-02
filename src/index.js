@@ -1,2 +1,2 @@
 import './style.css'
-import {todo, createTodo} from './todo.js'
+import './todo.js'

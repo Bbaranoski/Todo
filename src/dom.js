@@ -22,13 +22,8 @@ const menu = document.createElement("div");
 menu.setAttribute("id", "menu");
 domAppend(menu, content);
 
-export const testdiv = document.createElement("div");
-testdiv.setAttribute("id", "select");
-testdiv.classList.add('testdiv')
-domAppend(testdiv, content);
-
 const buttonListCreate = document.createElement("div");
-buttonListCreate.setAttribute("id", "listCreate");
+buttonListCreate.classList.add("listCreate");
 buttonListCreate.classList.add("list");
 domAppend(buttonListCreate, menu);
 const buttonTittle = document.createElement("h2");

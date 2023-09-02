@@ -1,4 +1,4 @@
-import { domAppend, domText, testdiv } from "./dom.js";
+import { domAppend, domText } from "./dom.js";
 import { buttonTodo } from "./todo.js";
 
 export const createList = function (text) {
@@ -8,14 +8,33 @@ export const createList = function (text) {
   const tittle = document.createElement("h2");
   domText(tittle, text);
   domAppend(tittle, list);
+  const deletId = document.getElementById("listSelect");
+  if (deletId != null) {
+    deletId.setAttribute("id", "");
+  }
+  list.setAttribute("id", "listSelect");
 
   this.main = document.createElement("div");
   this.main.classList.add("main");
+  const delet = document.getElementById("select");
+  if (delet != null) {
+    delet.remove();
+  }
+  domAppend(this.main, content);
+  domAppend(buttonTodo, this.main);
+  this.main.setAttribute("id", "select");
 
   list.addEventListener("click", () => {
     const delet = document.getElementById("select");
+    const deletId = document.getElementById("listSelect");
     if (this.main != delet) {
-      delet.remove();
+      if (delet != null) {
+        delet.remove();
+      }
+      if (deletId != null) {
+        deletId.setAttribute("id", "");
+      }
+      list.setAttribute("id", "listSelect");
       domAppend(this.main, content);
       domAppend(buttonTodo, this.main);
       this.main.setAttribute("id", "select");
@@ -31,7 +50,6 @@ export const createList = function (text) {
     if (delet == this.main) {
       delet.remove();
       e.stopPropagation();
-      domAppend(testdiv, content)
       list.remove();
     } else if (delet !== this.main) {
       e.stopPropagation();

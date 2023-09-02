@@ -100,7 +100,7 @@ button:hover{
     background-color: #dc2626;
 }
 
-#listCreate{
+.listCreate{
     order: 1;
     justify-content: center;
 }
@@ -130,4 +130,12 @@ input{
     align-self: center;
     font-size: calc(15px + 0.3vw);
     padding: 10px;
+}
+
+#newTodo:hover{
+    background-color: #d97706;
+}
+
+#listSelect{
+    background-color: #f9a8d4;
 }
